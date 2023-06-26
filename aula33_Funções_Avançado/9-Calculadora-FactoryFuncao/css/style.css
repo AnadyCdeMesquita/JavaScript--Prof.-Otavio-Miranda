@@ -1,0 +1,46 @@
+
+body {
+background-color: rgb(28, 181, 56);
+}
+
+section {
+
+width: 800px;
+margin: 0 auto;
+}
+
+h1{
+text-align: center;
+color:white;
+font-size: 4em
+}
+
+.calculadora{
+width: 400px;
+margin: 0 auto;
+}
+
+.display{
+font-size: 2rem;
+width: 100%;
+text-align: right;
+
+}
+
+.btn{
+width: 100%;
+height: 50px;
+font-size: 1em;
+background-color:beige;
+border-radius: 10px;
+cursor: pointer
+
+}
+
+.btn:hover{
+background-color:rgba(118, 39, 102, 0.509);
+}
+
+.btn-eq:hover{
+background-color:royalblue;
+}
