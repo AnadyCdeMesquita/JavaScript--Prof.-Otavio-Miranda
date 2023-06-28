@@ -1,45 +1,84 @@
-let pessoas ={
-nome: 'anady',
-sobrenome: 'carvalho',
 
-}
+// const obj ={
+// nome: 'Anady',
 
-// console.log(pessoas.nome)
-// console.log(pessoas.sobrenome)
+// get objeto1 (){
+// return this.nome
+// },
 
-// //OU
+// set objeto1 (nome2){
+// this.nome = nome2
+// },
+// }
 
-// console.log(pessoas['nome'])
-// console.log(pessoas['sobrenome'])
+// console.log(obj.objeto1);
+// obj.objeto1 = 'Fernando';
+// console.log(obj.nome);
 
-let cachorro = new Object()
-cachorro.nome = 'john'
-cachorro.raca = 'poodle'
-cachorro.idade = 3
-cachorro.anonascimento = function(){
-let data = new Date()
-return data.getFullYear() - this.idade
-}
 
- console.log(cachorro.anonascimento())
 
- for (let chave in cachorro){
-    console.log(cachorro[chave])
+
+
+
+
+//2 EXEMPLO
+
+// const str = 'computada'
+
+// let obj ={
+// a:'abc',
+// get [str](){
+//     return this.a
+// },
+// set [str](valor){
+//     this.a = valor
+
+// }
+// }
+// console.log(obj.computada)
+// obj.computada = 'xyz'
+// console.log(obj.computada)
+
+// //EXEMPLO 3
+
+// const objetopalavra = {
+
+// listaSting:['anady', 'fernando', 'vevé', 'luiza'],
+
+// get primeiralista(){
+//     return this.listaSting.length? this.listaSting[0]: null
+// },
+
+// set primeiralista(valor){
+// this.listaSting.push(valor)
+
+// },
+// }
+
+// console.log(objetopalavra.primeiralista)
+// objetopalavra.primeiralista = 'Sarah'
+// console.log(objetopalavra.listaSting)
+
+//EXEMPLO 4
+
+let teste = { a: 1}
+
+Object.defineProperty(teste, 'prop', {
+
+    get () { 
+        return this.a
+    },
+
+    set (valor) {
+        this.a = valor
+
+    },
     
-    }
+    
+})
 
-// let fiscal ={
-// nome: 'fernando',
-// idade: 63,
-// nascimento: function(){
-// let data = new Date()
-// return data.getFullYear() - this.idade
-// }
-// }
-//console.log(fiscal.nascimento())
+console.log(teste.prop)
 
-// for (let chave in fiscal){
-// console.log(chave)
+teste.prop = 10
 
-// }
-
+console.log(teste.prop)
