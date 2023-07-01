@@ -1,45 +1,10 @@
-let pessoas ={
-nome: 'anady',
-sobrenome: 'carvalho',
+//O Object.assign()método estático copia todas as propriedades próprias enumeráveis​​de um ou mais objetos de origem para um objeto de destino . Ele retorna o objeto de destino modificado.
 
-}
 
-// console.log(pessoas.nome)
-// console.log(pessoas.sobrenome)
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
 
-// //OU
+const returnedTarget = Object.assign(target,source);
 
-// console.log(pessoas['nome'])
-// console.log(pessoas['sobrenome'])
-
-let cachorro = new Object()
-cachorro.nome = 'john'
-cachorro.raca = 'poodle'
-cachorro.idade = 3
-cachorro.anonascimento = function(){
-let data = new Date()
-return data.getFullYear() - this.idade
-}
-
- console.log(cachorro.anonascimento())
-
- for (let chave in cachorro){
-    console.log(cachorro[chave])
-    
-    }
-
-// let fiscal ={
-// nome: 'fernando',
-// idade: 63,
-// nascimento: function(){
-// let data = new Date()
-// return data.getFullYear() - this.idade
-// }
-// }
-//console.log(fiscal.nascimento())
-
-// for (let chave in fiscal){
-// console.log(chave)
-
-// }
-
+console.log(returnedTarget)
+//console.log(target)

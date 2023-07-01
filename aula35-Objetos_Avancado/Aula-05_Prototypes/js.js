@@ -1,45 +1,90 @@
-let pessoas ={
-nome: 'anady',
-sobrenome: 'carvalho',
+//PROOTYPES SÃO MECANISMOS PELO O QUAL OS OBJETOS
+//JS HERDAM RECUROSS UNS DOS OUTROS
+//OBJETOS LITERAIS
+//  const ObjA ={
+//     chaveA : 'a'
+// }
+
+// const ObjB ={
+//     chaveB : 'b'
+// }
+
+// const ObjC = new Object()
+// ObjC.chaveC = 'c';
+
+
+// Object.setPrototypeOf(ObjB, ObjA);
+// Object.setPrototypeOf(ObjC, ObjB);
+// //console.log(ObjB.chaveA);
+// console.log(ObjC.chaveB);
+
+function Produto(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+
 
 }
 
-// console.log(pessoas.nome)
-// console.log(pessoas.sobrenome)
-
-// //OU
-
-// console.log(pessoas['nome'])
-// console.log(pessoas['sobrenome'])
-
-let cachorro = new Object()
-cachorro.nome = 'john'
-cachorro.raca = 'poodle'
-cachorro.idade = 3
-cachorro.anonascimento = function(){
-let data = new Date()
-return data.getFullYear() - this.idade
+Produto.prototype.desconto = function (porcentagem) {
+    this.preco = this.preco - (this.preco * (porcentagem / 100));
 }
 
- console.log(cachorro.anonascimento())
+Produto.prototype.aumento = function (porcentagem) {
+    this.preco = this.preco + (this.preco * (porcentagem / 100));
+}
 
- for (let chave in cachorro){
-    console.log(cachorro[chave])
-    
+const p1 = new Produto('Vaso', 10)
+
+//console.log(p1)
+
+//p1.aumento(50)
+//console.log(p1)
+
+p1.desconto(50)
+//console.log(p1)
+
+//criando um objeto independente da funcao construtora produto
+//posso pegar a funcao construtora produto para ser prototype de p2
+
+const p2 ={
+nome: 'camisola',
+preco: 100
+}
+Object.setPrototypeOf(p2, Produto.prototype)
+
+//console.log(p2)
+
+p2.aumento(50)
+//console.log(p2)
+
+//OUTRA FORMA DE CRIAR PROTOTYPE
+
+const p3 = Object.create(Produto.prototype)
+p3.nome = 'caneta'
+p3.preco = 40
+
+
+p3.aumento(50)
+
+//console.log(p3)
+
+const p4 = Object.create(Produto.prototype,{
+     preco:{
+    writable: true,
+    configurable:true,
+    value: 20,
+    enumerable:true,
+    },
+    tamanho: {
+    writable: true,
+    configurable:true,
+    value: 50,
+    enumerable:true,
+
     }
 
-// let fiscal ={
-// nome: 'fernando',
-// idade: 63,
-// nascimento: function(){
-// let data = new Date()
-// return data.getFullYear() - this.idade
-// }
-// }
-//console.log(fiscal.nascimento())
+    })
 
-// for (let chave in fiscal){
-// console.log(chave)
+p4.aumento(50)
 
-// }
-
+console.log(p4)
